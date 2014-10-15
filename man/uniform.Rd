@@ -6,33 +6,14 @@
 uniform(x, ...)
 }
 \arguments{
-\item{data}{The time info of time data}
-}
-\value{
-side effect, plot
+\item{x}{The vctor of data}
 }
 \description{
 This function will take an input and create a similar output that
 is distributed over the same type.
 }
-\examples{
-x.Date <- as.Date("2013-04-20") + rnorm(5000, 250, 100) - 1
-cal.heatMap(x.Date)
-x.Date <- as.Date("2013-04-20") + runif(5000, 0, 600)
-cal.heatMap(x.Date)
-
-# Example of using a list of dates, events
-x.Date <- as.Date("2013-04-20") + runif(5000, 0, 600)
-cal.heatMap(x.Date)
-
-Example of using th evalue of a time series
-z.Date <- as.Date("2013-04-20") + 1:500
-a.Date <- zoo(runif(500, 0, 60), z.Date)
-cal.heatMap(a.Date)
-}
 \author{
 Kenny Darrell
 }
-\keyword{graphics}
-\keyword{timeseries}
+\keyword{cade}
 
