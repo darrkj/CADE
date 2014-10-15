@@ -1,29 +1,17 @@
 
-# Would it make more sense to have this as generic function and
-# dispatch the results based on type, uni.character vs uni.integer
-uni <- function(x, len = length(x)) {
-  # stopifnot(is.vector(x)) # Does not work for factors, not atomic type.
-  if ( is.integer(x) ) {
-    sample(min(x):max(x), len, replace = TRUE)
-  } else if ( is.numeric(x) ) {
-    runif(len, min(x), max(x))
-  } else if ( is.factor(x) ) {
-    factor(sample(levels(x), len, replace = TRUE))
-  } else {
-    sample(unique(x), len, replace = TRUE)
-  }
-}
+
+
 
 # TODO: guid could be character, {19f3lt:df2fs42f:e12r53tad:...} a la sure view,
 # this will work for most text file type unique identifiers.
-is.guid <- function(x) {
-  is.integer(x) & length(unique(x)) == length(x)
-}
+#is.guid <- function(x) {
+#  is.integer(x) & length(unique(x)) == length(x)
+#}
 
 # TODO: Add method to use different classifier
 # TODO: Should bounds on uniform be scaled past min/max range
 # prop allows you to throttle the 50/50 split, higher means more fake data.
-
+# TODO: cade add ability to work with data that already has a y variable
 
 #' The main CADE function
 #'
@@ -39,6 +27,8 @@ is.guid <- function(x) {
 
 cade <- function(df, prop = 1, numTree = 500, skip = c()) {
   stopifnot(is.data.frame(df))
+  #TODO: get better na action
+  df <- df[complete.cases(df), ]
   
   ids <- df[, skip]
   real <- if (length(skip) > 0) df[, -(which(names(df) %in% skip))] else df
@@ -47,18 +37,19 @@ cade <- function(df, prop = 1, numTree = 500, skip = c()) {
   # real <- df[, !unlist(lapply(df, is.guid))]
   
   # create similar but uniform data
-  fake <- as.data.frame(lapply(real, function(x) uni(x, length(x) * prop)))
+  fake <- as.data.frame(lapply(real, function(x) uniform(x, length(x) * prop)))
   
-  # label brown dots
+  # Label the data you started with as negative outcomes.
   real$y <- 0
-  # lable red dots
+  # Label the fake data as the positive outcomes.
   fake$y <- 1
   
-  # add red dots and brown dots
+  # Combine both the real and the fake data.
   data <- rbind(real, fake)
   
   library(randomForest)
   # build classifier
+  
   tree <- randomForest(as.factor(y) ~ ., data = data, ntree = numTree, 
                        importance = TRUE)
   
@@ -78,10 +69,5 @@ cade <- function(df, prop = 1, numTree = 500, skip = c()) {
   df
 }
 
-#load('data/stats.rda')
-#data <- cade(stats, skip = c('player', 'date', 'guid'))
 
-#d <- reshape(data = data, idvar = c('player', 'date', 'guid'), 
-#             varying = list(names(data)[c(2:16, 19, 22:38)]), direction = 'long')
-#row.names(d) <- NULL
 
