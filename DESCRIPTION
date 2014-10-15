@@ -1,0 +1,9 @@
+Package: CADE
+Type: Package
+Title: What the package does (short line)
+Version: 0.1
+Date: 2014-10-15
+Author: Kenny Darrell
+Maintainer: Kenny Darrell <darrell@datamininglab.com>
+Description: Implementation of the CADE (Classifier-Adjusted Density Estimation)
+License: What license is it under?
