@@ -1,6 +1,6 @@
 
 
-#' The main CADE function
+#' The main CADE outlier function
 #'
 #' This function calls and runs CADE
 #' @param df The data frame in question
@@ -9,9 +9,9 @@
 #' @keywords anonaly detection
 #' @export
 #' @examples
-#' cade(cars)
+#' outlier(cars)
 
-cade <- function(df, prop = 1, skip = c(), cutoff = .5, ...) {
+outlier <- function(df, prop = 1, skip = c(), cutoff = .5, ...) {
 
   df <- df[complete.cases(df), ]
   
