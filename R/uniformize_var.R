@@ -10,7 +10,7 @@
 #' @export
 
 
-uniform <- function(x, ...) {
+uniform <- function(x) {
   UseMethod("uniform", x)
 }
 
@@ -22,8 +22,8 @@ uniform <- function(x, ...) {
 #' @keywords cade
 #' @export
 
-uniform.default <- function(x, len = length(x)) {
-  sample(unique(x), len, replace = TRUE)}
+uniform.default <- function(x) {
+  sample(unique(x), length(x), replace = TRUE)}
 
 
 #' Integer version of uniform
@@ -33,8 +33,8 @@ uniform.default <- function(x, len = length(x)) {
 #' @keywords cade
 #' @export
 
-uniform.integer <- function(x, len = length(x)) {
-  sample(min(x):max(x), len, replace = TRUE)
+uniform.integer <- function(x) {
+  sample(min(x):max(x), length(x), replace = TRUE)
 }
 
 #' Numeric version of uniform
@@ -44,8 +44,8 @@ uniform.integer <- function(x, len = length(x)) {
 #' @keywords cade
 #' @export
 
-uniform.numeric <- function(x, len = length(x)) {
-  runif(len, min(x), max(x))
+uniform.numeric <- function(x) {
+  runif(length(x), min(x), max(x))
 }
 
 
@@ -56,8 +56,8 @@ uniform.numeric <- function(x, len = length(x)) {
 #' @keywords cade
 #' @export
 
-uniform.factor <- function(x, len = length(x)) {
-  factor(sample(levels(x), len, replace = TRUE))
+uniform.factor <- function(x) {
+  factor(sample(levels(x), length(x), replace = TRUE))
 }
 
 
