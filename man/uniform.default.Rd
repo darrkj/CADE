@@ -4,7 +4,7 @@
 \alias{uniform.default}
 \title{Default version of uniform}
 \usage{
-\method{uniform}{default}(x, len = length(x))
+\method{uniform}{default}(x)
 }
 \arguments{
 \item{x}{The vctor of data}

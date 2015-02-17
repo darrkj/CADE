@@ -4,7 +4,7 @@
 \alias{uniform.numeric}
 \title{Numeric version of uniform}
 \usage{
-\method{uniform}{numeric}(x, len = length(x))
+\method{uniform}{numeric}(x)
 }
 \arguments{
 \item{x}{The vctor of data}

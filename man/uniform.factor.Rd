@@ -4,7 +4,7 @@
 \alias{uniform.factor}
 \title{Factor version of uniform}
 \usage{
-\method{uniform}{factor}(x, len = length(x))
+\method{uniform}{factor}(x)
 }
 \arguments{
 \item{x}{The vctor of data}

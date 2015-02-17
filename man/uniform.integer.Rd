@@ -4,7 +4,7 @@
 \alias{uniform.integer}
 \title{Integer version of uniform}
 \usage{
-\method{uniform}{integer}(x, len = length(x))
+\method{uniform}{integer}(x)
 }
 \arguments{
 \item{x}{The vctor of data}

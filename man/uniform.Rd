@@ -4,7 +4,7 @@
 \alias{uniform}
 \title{Create uniform distribution}
 \usage{
-uniform(x, ...)
+uniform(x)
 }
 \arguments{
 \item{x}{The vctor of data}
