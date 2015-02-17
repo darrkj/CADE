@@ -14,6 +14,18 @@ uniform <- function(x, ...) {
   UseMethod("uniform", x)
 }
 
+
+#' Default version of uniform
+#' 
+#' @author Kenny Darrell
+#' @param x The vctor of data
+#' @keywords cade
+#' @export
+
+uniform.default <- function(x, len = length(x)) {
+  sample(unique(x), len, replace = TRUE)}
+
+
 #' Integer version of uniform
 #' 
 #' @author Kenny Darrell
@@ -49,13 +61,5 @@ uniform.factor <- function(x, len = length(x)) {
 }
 
 
-#' Default version of uniform
-#' 
-#' @author Kenny Darrell
-#' @param x The vctor of data
-#' @keywords cade
-#' @export
 
-uniform.default <- function(x, len = length(x)) {
-  sample(unique(x), len, replace = TRUE)}
 
