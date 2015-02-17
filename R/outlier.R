@@ -7,6 +7,7 @@
 #' @param prop The proportion of true to false cases
 #' @param skip Fields that should not be included 
 #' @param cutoff The probability above which to consider an outlier
+#' @param ... Additional arguments to be passed on to randomForest
 #' @keywords anonaly detection
 #' @export
 #' @examples
