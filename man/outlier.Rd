@@ -12,12 +12,18 @@ outlier(df, prop = 1, skip = c(), cutoff = 0.5, ...)
 \item{prop}{The proportion of true to false cases}
 
 \item{skip}{Fields that should not be included}
+
+\item{cutoff}{The probability above which to consider an outlier}
 }
 \description{
 This function calls and runs CADE
 }
 \examples{
 outlier(cars)
+}
+\references{
+Friedland, L., Gentzel, A. & Jensen, D. (2014). Classifier-Adjusted Density Estimation for
+   Anomaly Detection and One-Class Classification
 }
 \keyword{anonaly}
 \keyword{detection}
