@@ -1,9 +1,9 @@
 Package: CADE
 Type: Package
-Title: What the package does (short line)
+Title: Outlier detection on datasets
 Version: 0.1
-Date: 2014-10-15
+Date: 2015-2-15
 Author: Kenny Darrell
 Maintainer: Kenny Darrell <darrell@datamininglab.com>
-Description: Implementation of the CADE (Classifier-Adjusted Density Estimation)
-License: What license is it under?
+Description: Implementation of the CADE (Classifier-Adjusted Density Estimation) algorithm for outlier detection.
+License: GPL
