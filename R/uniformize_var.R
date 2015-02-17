@@ -6,11 +6,12 @@
 #' 
 #' @author Kenny Darrell
 #' @param x The vctor of data
+#' @param len The length of the uniform set created
 #' @keywords cade
 #' @export
 
 
-uniform <- function(x) {
+uniform <- function(x, len) {
   UseMethod("uniform", x)
 }
 
@@ -19,33 +20,36 @@ uniform <- function(x) {
 #' 
 #' @author Kenny Darrell
 #' @param x The vctor of data
+#' @param len The length of the uniform set created
 #' @keywords cade
 #' @export
 
-uniform.default <- function(x) {
-  sample(unique(x), length(x), replace = TRUE)}
+uniform.default <- function(x, len = length(x)) {
+  sample(unique(x), len, replace = TRUE)}
 
 
 #' Integer version of uniform
 #' 
 #' @author Kenny Darrell
 #' @param x The vctor of data
+#' @param len The length of the uniform set created
 #' @keywords cade
 #' @export
 
-uniform.integer <- function(x) {
-  sample(min(x):max(x), length(x), replace = TRUE)
+uniform.integer <- function(x, len = length(x)) {
+  sample(min(x):max(x), len, replace = TRUE)
 }
 
 #' Numeric version of uniform
 #' 
 #' @author Kenny Darrell
 #' @param x The vctor of data
+#' @param len The length of the uniform set created
 #' @keywords cade
 #' @export
 
-uniform.numeric <- function(x) {
-  runif(length(x), min(x), max(x))
+uniform.numeric <- function(x, len = length(x)) {
+  runif(len, min(x), max(x))
 }
 
 
@@ -53,11 +57,12 @@ uniform.numeric <- function(x) {
 #' 
 #' @author Kenny Darrell
 #' @param x The vctor of data
+#' @param len The length of the uniform set created
 #' @keywords cade
 #' @export
 
-uniform.factor <- function(x) {
-  factor(sample(levels(x), length(x), replace = TRUE))
+uniform.factor <- function(x, len = length(x)) {
+  factor(sample(levels(x), len, replace = TRUE))
 }
 
 

@@ -14,6 +14,8 @@ outlier(df, prop = 1, skip = c(), cutoff = 0.5, ...)
 \item{skip}{Fields that should not be included}
 
 \item{cutoff}{The probability above which to consider an outlier}
+
+\item{...}{Additional arguments to be passed on to randomForest}
 }
 \description{
 This function calls and runs CADE

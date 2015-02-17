@@ -4,10 +4,12 @@
 \alias{uniform.numeric}
 \title{Numeric version of uniform}
 \usage{
-\method{uniform}{numeric}(x)
+\method{uniform}{numeric}(x, len = length(x))
 }
 \arguments{
 \item{x}{The vctor of data}
+
+\item{len}{The length of the uniform set created}
 }
 \description{
 Numeric version of uniform

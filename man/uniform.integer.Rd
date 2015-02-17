@@ -4,10 +4,12 @@
 \alias{uniform.integer}
 \title{Integer version of uniform}
 \usage{
-\method{uniform}{integer}(x)
+\method{uniform}{integer}(x, len = length(x))
 }
 \arguments{
 \item{x}{The vctor of data}
+
+\item{len}{The length of the uniform set created}
 }
 \description{
 Integer version of uniform

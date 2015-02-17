@@ -4,10 +4,12 @@
 \alias{uniform}
 \title{Create uniform distribution}
 \usage{
-uniform(x)
+uniform(x, len)
 }
 \arguments{
 \item{x}{The vctor of data}
+
+\item{len}{The length of the uniform set created}
 }
 \description{
 This function will take an input and create a similar output that
