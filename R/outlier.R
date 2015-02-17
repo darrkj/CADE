@@ -6,10 +6,13 @@
 #' @param df The data frame in question
 #' @param prop The proportion of true to false cases
 #' @param skip Fields that should not be included 
+#' @param cutoff The probability above which to consider an outlier
 #' @keywords anonaly detection
 #' @export
 #' @examples
 #' outlier(cars)
+#' @references Friedland, L., Gentzel, A. & Jensen, D. (2014). Classifier-Adjusted Density Estimation for
+#'    Anomaly Detection and One-Class Classification
 
 outlier <- function(df, prop = 1, skip = c(), cutoff = .5, ...) {
 
@@ -36,8 +39,7 @@ outlier <- function(df, prop = 1, skip = c(), cutoff = .5, ...) {
   vars <- names(attr(tree$terms, 'dataClasses')[-1])
   prop <- tree$importance[, 1] / sum(tree$importance[, 1])
   
-  # the classifier probabilities
-  # TODO: save time only predict real cases
+  # The classifier probabilities
   df$prob <- predict(tree, newdata = df, type = 'prob')[, 2]
   df$prob <- df$prob / (1 - df$prob)
 
