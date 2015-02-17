@@ -12,9 +12,7 @@
 #' cade(cars)
 
 cade <- function(df, prop = 1, skip = c(), cutoff = .5, ...) {
-  stopifnot(is.data.frame(df))
-  #TODO: get better na action
-  #TODO: Should convert chars to factors
+
   df <- df[complete.cases(df), ]
   
   ids <- df[, skip]
