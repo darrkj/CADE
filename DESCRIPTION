@@ -5,5 +5,9 @@ Version: 0.1
 Date: 2015-2-15
 Author: Kenny Darrell
 Maintainer: Kenny Darrell <darrell@datamininglab.com>
-Description: Implementation of the CADE (Classifier-Adjusted Density Estimation) algorithm for outlier detection.
+Description: Implementation of the CADE (Classifier-Adjusted Density 
+    Estimation) algorithm for outlier detection.
 License: GPL
+LazyData: true
+Imports:
+    randomForest
